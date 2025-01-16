@@ -1,0 +1,70 @@
+ps aux   - list all processes running at the background
+    here : a--> show processes for all users.
+    	   u--> Display processes in user-oriented format.
+    	   x--> includes process not attached to a terminal.
+    	   
+To kill specific application/process. First u need to get the PID for particular application like skype,chrome etc. by using following command.
+	pgrep -l skype   or pgrep skype
+
+BY above command will get PID's for particular application.by using following command will kill that application
+	pgrep skype | xargs kill      --it will kill skype with all PID's 
+	
+To comment specific line in text file  u need to use sed(stream editor command) 
+EX: 1) To comment 3rd line will use following command.
+    sed -i "3s/^/#/" inp.txt   -> here 3 - 3rd line
+    				->      s - substitute
+    					^ - starting of the line.
+    					# - we need to substitute with # at starting of 3rd line.
+    2) if you want comment multiple lines at atime
+     sed -i "1,3s/^/#/" inp.txt -> it will comment from line 1 to 3 in inp.txt file.
+     
+To change permissions for the file use, following command
+chmod 777 inp.txt
+	 here   7 - 4(read)+2(write)+1(execute)
+	 first  7 - owner Full permission - here owner have 4(read)+2(write)+1(execute)
+	 second 7 - Group full permission - here Group have 4(read)+2(write)+1(execute)
+	 Third  7 - others full permission- here others have 4(read)+2(write)+1(execute)
+chmod 600 inp.txt   - means
+                6 - owner have 4(read)+2(write)  -- only read and write access for owner, there is no execute permission.
+                0 - Groups have no permissions
+                0 - others also have no permissions.
+chmod  644 inp.txt   -means
+		6 - owner have 4(read)+2(write)  -- only read and write access for owner, there is no execute permission.
+		4 - Groups have only read permission, no write and execute permissions  - 4(read).
+		4 - others have only read permission, no write and execute permissions  - 4(read).
+
+To verify the permissions for particular file use following command.
+ls -l inp.txt
+-----------------------------------------------------------------------------------------------------------------------------------------
+How do you view the contents of a file?
+
+Commands:
+cat filename: Displays the entire content.
+less filename: Allows scrolling through the file.
+head -n 5 filename: Displays the first 5 lines.
+tail -n 5 filename: Displays the last 5 lines
+-----------------------------------------------------------------------------------------------------------------------------------------
+ifconfig or ip a: Displays network interface information.
+-----------------------------------
+How do you monitor system performance?
+
+Commands:
+vmstat: Reports system performance.
+iostat: Displays CPU and I/O statistics.
+sar: System activity report.
+------------------------------------------------------------------------------------------------------------------------------------
+How do you check memory usage?
+
+Commands:
+free -h: Displays memory usage in human-readable format.
+top or htop: Monitors memory and CPU usage dynamically.
+--------------------------------------------------------------------------------------------------------------------------
+How do you kill a process?
+
+kill PID: Gracefully stops a process.
+kill -9 PID: Forcefully stops a process.
+What is the difference between sudo and su?
+
+sudo: Executes commands with elevated privileges.
+su: Switches to another user (defaults to root).
+----------------------------------------------------------------------------------

@@ -1,0 +1,1287 @@
+'''s="ddd123@#r8*"
+digits=""
+letters=""
+special=""
+for i in s:
+    if i.isdigit():
+        digits+=i
+    elif i.isalpha():
+        letters+=i
+    else:
+        special+=i
+final="".join(digits),"".join(letters),"".join(special)
+print(final)'''
+'''s="r tff u"
+out=s.replace(" ","9")
+print(out)'''
+l=[[1,2,3],[5,6,7]]
+ou=[i for j in l for i in j]
+print(ou)
+nested_list = [[1, 2, 3], [4, 5], [6, 7, 8]]
+flattened = [item for sublist in nested_list for item in sublist]
+print(flattened)
+o=[1,[2,3],[4,5]]
+flat=[]
+for i in o:
+    if isinstance(i,list):
+        flat.extend(i)
+    else:
+        flat.append(i)
+print(flat)
+o=[1,[2,3],[4,5]]
+fin=[]
+[fin.extend(i) if isinstance(i,list) else fin.append(i) for i in o]
+print(fin)
+f=1234
+m=0
+while f>0:
+    l=f%10
+    f=f//10
+    m=m*10+l
+print(m)
+f="Narendra"
+sh=""
+for i in f:
+    sh=i+sh
+print(sh)
+from collections import Counter
+s="Narendra"
+d=Counter(s)
+print(d)
+#2nd
+res={}
+for i in s:
+    if i in res:
+        res[i]+=1
+    else:
+        res[i]=1
+print(res)
+#3rd
+an={}
+for i in s:
+    an[i]=an.get(i,0)+1
+print(an)
+---------------------------------------------------------
+p=[1,3,4,5,6,5,3]
+#p=['Narendra', 'Kumar', 'Reddy', 'Bana']
+left=0
+right=len(p)-1
+while left<right:
+    p[left],p[right]=p[right],p[left]
+    left+=1
+
+    right-=1
+print(p)
+for i in p:
+    if p.count(i)>1:
+        p.remove(i)
+print(p)
+def pat(n):
+    for i in range(1,n+1):
+        for j in range(1,i+1):
+            print(j,end=" ")
+        for j in range(i-1, 0,-1):
+            print(j,end=" ")
+        print()
+pat(5)
+print("###################################")
+def tri(n):
+    for i in range(n):
+        print(" "*(n-i-1)+"*"*(2*i+1))
+tri(5)
+my_li=[12,15,76,"a","b",45]
+digit=0
+for i in my_li:
+    if isinstance(i,int):
+        digit+=i
+print(digit)
+print("&&&&&")
+sum=0
+for i in my_li:
+    if isinstance(i,int):
+        for j in str(i):
+            sum+=int(j)
+print(sum)
+def fib():
+    a,b=0,1
+    while True:
+        yield a
+        a,b=b,a+b
+fi=fib()
+for _ in range(10):
+    print(next(fi))
+print("Another way for fibnocci")
+def fibn(n):
+    f=[0,1]
+    for i in range(2,n):
+        y=f[i-1]+f[i-2]
+        f.append(y)
+    return f
+u=fibn(10)
+print(u)
+'''print("Prime numbers")
+def pri(n):
+    if n<=1:
+        return False
+    for i in range(2,int(n**0.5)+1):
+        if n%i==0:
+            return False
+    return True
+n=int(input())
+if pri(n):
+    print(f"{n} is prime")
+else:
+    print(f"{n} is not prime")'''
+print("Reversing a words")
+v="Narendra Kumar Reddy Bana"
+d=v.split()
+print(d)
+re=[]
+for i in range(len(d)):
+    re.append(d[-i-1])
+print(re)
+q=" ".join(re)
+print(q)
+l=[2,4,6,8,4,1,45]
+for i in range(len(l)-1):
+    for j in range(len(l)-1):
+        if l[j]>l[j+1]:
+            l[j],l[j+1]=l[j+1],l[j]
+print(l)
+#sum of contiguous subaray
+def max_num(nums):
+    max_start = nums[0]
+    max_end = nums[0]
+    
+    for i in range(1, len(nums)):
+        max_end = max(nums[i], max_end + nums[i])
+        max_start = max(max_start, max_end)
+    
+    return max_start
+
+# Example usage:
+outnuts = [-2, 1, -3, 4, -1, 2, -5, 4, 10]
+print("The maximum sum of the contiguous subarray is:", max_num(outnuts))
+
+#Finding nth largest number
+def larg(n):
+    l=[1,2,3,4,45,3,90]
+    for i in range(len(l)-1):
+        for j in range(len(l)-1):
+            if l[j]>l[j+1]:
+                l[j],l[j+1]=l[j+1],l[j]
+    print(l)
+    x=l[n-1]
+    l.remove(n-1)
+    print(f"The largest number : {x}")
+    return l
+n=4
+final=larg(n)
+print(final)
+#using recursion
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+def generate_fib_sequence(n):
+    return [fib(i) for i in range(n+1)]
+x = generate_fib_sequence(10)
+print(x)
+#Counting each character occurance in string without collections module
+f="Narendra"
+d=[]
+uni=set()
+for i in f:
+    if i not in uni:
+        d.append((i,f.count(i)))
+        uni.add(i)
+print(d)
+
+s="dddmmmmaa66666xdd"
+o/p == "d5m4a265x1"
+
+from collections import Counter
+co=Counter(s)
+ou="".join([f"{ch}{count}" for ch,count in co.items()])
+print(ou)
+
+s="dddmmmmaa66666xdd"
+o/p == "d3m4a265xd2"
+def compress_string(s):
+    if not s:
+        return ""
+    
+    compressed = []
+    count = 1
+    prev_char = s[0]
+    for char in s[1:]:
+        if char==prev_char:
+            count+=1
+        else:
+            compressed.append(prev_char)
+            if count>1:
+                compressed.append(str(count))
+            
+            prev_char=char
+            count=1
+    compressed.append(prev_char)
+    if count > 1:
+        compressed.append(str(count))
+        
+    return "".join(compressed)
+
+
+s = "dddmmmmaa66666xdd"
+output = compress_string(s)
+print(output)
+
+f=[1,2,2,1,4,99,99,76,67,88,8,8,8,8,76,67,76,67,99,99,4,4,4,4,4,2,2,1,1,1,1,1,100,999]
+print(len(f))
+d=[]
+uni=set()
+for i in f:
+    if i not in uni:
+        d.append((i,f.count(i)))
+        uni.add(i)
+print(d)
+------------------------------------------------------------------------------
+s="operation\n\nNarendra\n\r\nworking under you"
+#output=["operation","narendra",working under you"]
+import re
+f=re.split(r'\n+|\r+',s.lower().strip())
+print(f)
+f=[l.strip() for l in f if l.strip()]
+print(f[1])
+---------------------------------------------------------------------------------
+str="working not solution(357097) _grp"
+f=str.split("(")
+print(f)
+fin="".join(f[0])
+print(fin)
+===============
+str="working not solution(357097) _grp"
+g=re.split(r'\(|\)',str)
+print(g)
+################################################################################
+import re
+tr="operations\n\r\nworking on project"
+d=re.split(r"\n+|\r+",tr.strip())
+d=[i.strip() for i in d if i.strip()]
+print(d)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+def find_smallest_missing_positive(nums):
+    nums = [num for num in nums if num > 0]  # Keep only positive numbers
+    nums_set = set(nums)  # Convert to a set for O(1) lookups
+
+    smallest_missing = 1  # Start checking from 1
+    while smallest_missing in nums_set:
+        smallest_missing += 1
+
+    return smallest_missing
+
+# Example usage
+nums = [3, 4, 1, -1]
+result = find_smallest_missing_positive(nums)
+print(result)  # Output should be 2
+--------------------------------------------------------------------------------------------
+m= [3,4,-1,1]
+s=[i for i in m if i>0]
+
+s=set(s)
+print(s)
+first_miss=1
+while first_miss in s:
+    first_miss+=1
+print(first_miss)
+---------------------------------------
+'''Input: [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]'''
+#Output: [[1,6],[8,10],[15,18]]
+
+l = [[1,3],[2,6],[4,10],[15,18]
+l.sort(key=lambda x: x[0])
+merged = [l[0]]
+print(merged)
+for current in l[1:]:
+    last_merged=merged[-1]
+    
+    if current[0]<= last_merged[1]:
+        merged[-1]=[last_merged[0],max(last_merged[1],current[1])]
+    else:
+        merged.append(current)
+print(merged)
+--------------------------------------------
+'''l1 = [2,3,4,5,6]
+l2 = [5,6]
+#updated=[]
+max_len = max(len(l1),len(l2))
+print(max_len)
+l1.extend([0]* (max_len-len(l1)))
+l2.extend([0]* (max_len-len(l2)))
+print(l1)
+print(l2)
+updated = [a+b for a,b in zip(l1,l2)]
+print(updated)'''
+
+'''Input: "226"
+Output: 3
+Explanation: "226" can be decoded as "BZ", "VF", and "BBF".'''
+s= "1024"
+n = len(s)
+dp = [0] * (n+1)
+dp[0] = 1
+dp[1] = 1
+for i in range(2, n+1):
+    one = int(s[i-1:i])
+    two = int(s[i-2:i])
+    if 1 <= one <=9:
+        dp[i] += dp[i-1]
+    if 10 <= two <=26:
+        dp[i]+= dp[i-2]
+print(f"The total Number of combinations for the given input s was : {dp[n]}")
+====================================================================
+def anagram(strs):
+    ana_dict={}
+    for s in strs:
+        key = "".join(sorted(s))
+        print(key)
+        if key in ana_dict:
+            ana_dict[key].append(s)
+        else:
+            ana_dict[key]=[s]
+    print(ana_dict)
+    result=[]
+    for group in ana_dict.values():
+        if len(group)==1:
+            result.append(group[0])
+        else:
+            result.append(group)
+    return result
+            
+strs = ["bat", "cat", "act", "pet", "tep", "ept"]
+final=anagram(strs)
+print(final)
+==========================================================================
+import requests
+import csv
+
+# URL to fetch data from
+url = "https://reqres.in/api/users?page=3&per_page=2"
+
+# Sending a GET request to the URL
+response = requests.get(url)
+
+# Checking if the request was successful
+if response.status_code == 200:
+    # Parsing the response as JSON
+    data = response.json()
+    
+    # Extracting user data from the response
+    users = data.get("data", [])
+    print("user",users)
+    
+    # Specify the CSV file name
+    csv_file = "C:\\Users\\Span63\\Downloads\\users_data.csv"
+    
+    # Writing data to CSV
+    with open(csv_file, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        
+        # Write the header
+        writer.writerow(["ID", "Email", "First Name", "Last Name", "Avatar"])
+        
+        # Write the user data
+        for user in users:
+            writer.writerow([user["id"], user["email"], user["first_name"], user["last_name"], user["avatar"]])
+    
+    print(f"Data has been written to {csv_file}")
+else:
+    print(f"Failed to retrieve data. Status code: {response.status_code}")
+------------------------------------------------------------------
+import threading
+import time
+
+def print_numbers():
+    for i in range(5):
+        print(f"Number: {i}")
+        time.sleep(1)
+
+def print_letters():
+    for letter in "abcde":
+        print(f"Letter: {letter}")
+        time.sleep(1)
+
+# Creating threads
+thread1 = threading.Thread(target=print_numbers)
+thread2 = threading.Thread(target=print_letters)https://www.youtube.com/watch?v=ROjZy1WbCIA
+
+# Starting threads
+thread1.start()
+thread2.start()
+
+# Waiting for both threads to finish
+thread1.join()
+thread2.join()
+
+print("Both threads have finished.")
+-------------------------------------------
+Hi Sudheep Mandava
+ 
+Goodafternoon, Candidate has joined the bridge. 
+ 
+Sweta Singh (Unverified) left the chat.
+
+ 
+1) create a dictonary of 5 students with their marks in any subject and try to update value of one user
+ 
+d={"Narendra":100,"Uma":200,"Rajesh":250,"Raju":150,"Ram":190}
+
+print(d)
+
+d["Raju"]=250
+
+print(d)
+
+del d["Raju"]
+
+print(d)
+
+d.update({"Sita":1000})
+
+print(d)
+
+for i,j in d.items():
+
+    if j>200:
+
+        print(i,j)
+
+ 
+hello naraendra you are there in call?
+ 
+list1 = ["M", "na", "i", "Ke"]
+list2 = ["y", "me", "s", "lly"]
+ 
+Output: ['My', 'name', 'is', 'Kelly']
+ 
+list1 = [10, 20, 4, 45, 99]
+ 
+list1 = ["M", "na", "i", "Ke"]
+
+list2 = ["y", "me", "s", "lly"]
+
+# Output: ['My', 'name', 'is', 'Kelly']
+
+out=[a+b for a,b in zip(list1,list2)]
+
+print(out)
+
+ 
+l = [10, 20, 4, 45, 99]
+
+print(len(l))
+
+for i in range(len(l)-1):
+
+    for j in range(len(l)-1):
+
+        if l[j]>l[j+1]:
+
+            l[j],l[j+1]=l[j+1],l[j]
+
+print(l)
+
+n=2
+
+print(f"The second smallest element in the list was {l[n-1]}")
+ 
+data = {
+
+    'hero' : ['iron man', 'thor', 'hulk', 'black widow', 'hawkeye', np.nan, 'spider-man'], 
+
+    'power level': [85, 95, 100, 70, 65, np.nan, 80], 
+
+    'speed': [np.nan, 90, 70, 85, 60, 75, 80], 
+
+    'iq' : [95, 85, 70, 80, np.nan, 65, 90]
+
+}
+ 
+import pandas as pd
+import numpy as np
+
+# Create the DataFrame
+data = {
+    'hero': ['iron man', 'thor', 'hulk', 'black widow', 'hawkeye', np.nan, 'spider-man'],
+    'power level': [85, 95, 100, 70, 65, np.nan, 80],
+    'speed': [np.nan, 90, 70, 85, 60, 75, 80],
+    'iq': [95, 85, 70, 80, np.nan, 65, 90]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+# Find where NaN is present in the 'power level' column
+nan_in_power_level = df['power level'].isna()
+#finding where is nan present in poerlevel
+nan_row=df.loc[nan_in_power_level]
+print(nan_row)
+# Display rows where NaN is present in the 'power level' column
+df.loc[nan_in_power_level, :] = df.loc[nan_in_power_level].fillna(100)
+print(df)
+
+
+ 
+ 
+squared_matrix = [
+    [2, 3, 4],
+    [4, 3, 3],
+    [3, 3, 4]
+]
+ 
+ 
+squared_matrix = [
+
+    [2, 3, 4],
+
+    [4, 3, 3],
+
+    [3, 3, 4]
+
+]
+
+import numpy as np
+
+mat=np.array(squared_matrix)
+
+print(mat)
+
+first=np.diagonal(mat)
+
+print(first)
+
+sum1=0
+
+for i in first:
+
+    sum1+=i
+
+print(sum1)
+
+second=np.fliplr(mat).diagonal()
+
+print(second)
+
+#sum2=0
+
+for i in second:
+
+    sum1+=i
+
+print(sum1)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import re
+
+n = "6879032=="
+if re.fullmatch(r"\d+", n):
+    print("It has only digits")
+elif re.fullmatch(r"[a-zA-Z]+", n):
+    print("It has only alphabetic characters")
+elif re.search(r"\d", n) and re.search(r"[a-zA-Z]", n):
+    print("It has a mix of digits and alphabetic characters")
+else:
+    print("It has other types of characters")
+=================
+square=[
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+import numpy as np
+mat=np.array(square)
+print(mat)
+pd=np.trace(mat)
+print(pd)
+sd=np.trace(np.fliplr(mat))
+print(sd) 
+----------------------------------------------------------------------
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Finding Largest Number"
+
+@app.route("/largest", methods=["POST"])
+def largest():
+    data = request.json
+    print(f"Received Data: {data}")
+    numbers = data["numbers"]
+    print(f"Numbers are: {numbers}")
+    s = sorted(numbers, reverse=True)
+    lar = s[2]  # 3rd largest element
+    return jsonify({"largest number": lar})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+-------------------------------------------------------------------------
+def square(n):
+   return n*n
+num=[3,4,5,6,6,4]
+res=list(map(square,num))
+print(res)
+-------------------------------------------------------------------
+"""Program THAT takes a sentence and counts number of vowels in each string of the sentence"""
+
+s=input("Enter a string here :")
+p=s.split()
+print(p)
+print(len(s))
+vowel={}
+cou=0
+for i in p[::]:
+    #print(i)
+    for j in i:
+        if j.lower() in "aeiou":
+            cou+=1
+        vowel.update({i:cou})
+    cou=0
+print(vowel)
+----------------------------------------------------------------------------
+'''How would you implement a function to find all substrings of a given string?Example: For "abc", substrings are "a", "b", "c", "ab", "bc", "abc".'''
+
+
+def sub(str):
+    substrings=[]
+    for i in range(len(str)):
+        for j in range(i+1,len(str)+1):
+            substrings.append(str[i:j])
+    return substrings
+str="abc"
+res=sub(str)
+print(res)
+-------------------------------------------------------------------------
+import re
+pat=re.compile(r"^[a-z,A-Z0-9#@$%]+@[a-zA-Z0-9%&]+\.[a-zA-Z]{2,}$")
+
+def valid(email):
+    if pat.match(email):
+        return True
+    else:
+        return False
+l=["narendra410@gmail.com","@ui","vgbhu@google.com"]
+for email in l:
+    if valid(email):
+        print(f"{email} was valid only")
+    else:
+        print(f"{email} was not valid one")
+-------------------------------------------------------------------------
+from abc import ABC,abstractmethod
+#Abstract class
+class Animal(ABC):
+    
+    @abstractmethod
+    def sleep(self):
+        pass
+    def sound(self):
+        print("The Animal Was Making Sounds")
+#derived class
+class Dog(Animal):
+    def sleep(self):
+        print("Bow Bow")
+#derived class
+class cat(Animal):
+    def sleep(self):
+        print("Meow Meow Pilli")
+        
+#ABstraction is nothing but we won't implement method in abstract class but we implement inside derived class.
+dog=Dog()
+dog.sound()
+cat=cat()
+cat.sound()
+cat.sleep()
+---------------------------------------------------------------
+l=[["Narendra",100000,"Python","Bng"],
+   ["Reddy",200000,"HR","Hyd"],
+   ["Raju",300000,"Linear","Chennai"],
+   ["Vyshnavi",500000,"Fire","Pune"],
+   ["Rajesh",700000,"Police","Maharastra"],
+   ["Pavan",900000,"Python","Bng"],
+   ["Ramana",400000,"HR","Hyd"]]
+max_salb=[]
+max_salh=[]
+max_salp=[]
+max_salc=[]
+max_salm=[]
+for i in l:
+    if i[2]=="Python" and i[3]=="Bng":
+        max_salb.append(i[1])
+    elif i[2]=="HR" and i[3]=="Hyd":
+        max_salh.append(i[1])
+    elif i[2]=="Linear" and i[3]=="Chennai":
+        max_salc.append(i[1])
+    elif i[2]=="Fire" and i[3]=="Pune":
+        max_salp.append(i[1])
+    else:
+        max_salm.append(i[1])
+print(f"Maximum salary for Bangalore  Location : {max(max_salb)}")
+print(f"Maximum salary for Hyderabad  Location : {max(max_salh)}")
+print(f"Maximum salary for Pune       Location : {max(max_salp)}")
+print(f"Maximum salary for Chennai    Location : {max(max_salc)}")
+print(f"Maximum salary for Maharastra Location : {max(max_salm)}")
+#Another Simple way 
+import pandas as pd
+df=pd.DataFrame(l,columns=["Name","Sal","Domain","Loc"])
+#print(df)
+s=df.groupby(["Domain","Loc"]).max("Sal")
+print(s)
+------
+import os
+def find():
+    path="/home/span63/Documents/shellscript/day3"
+    
+    for file in os.listdir(path):
+        print(file)
+        
+
+res=find()
+
+
+import os
+
+def find():
+    path = "/home/span63/Documents/shellscript/day3"
+    
+    # Initialize an empty list to store all file paths
+    all_files = []
+    
+    # Use os.walk to go through all directories and subdirectories
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            # Join the root and file to get the full file path
+            full_path = os.path.join(root, file)
+            all_files.append(full_path)
+    
+    return all_files
+
+# Capture the result in res
+res = find()
+
+# Print the result if needed
+for file in res:
+    print(file)
+
+#Write a Python program to sort a list of dictionaries using Lambda.
+
+'''l1= [{"name":"Narendra","age":24},
+     {"name":"Reddy","age":23},
+     {"name":"Bana","age":25}]
+sort=sorted(l1,key=lambda x: x["age"])
+print(sort)'''
+
+# Write a Python program to rearrange positive and negative numbers in a given array using Lambda.
+# Original arrays:
+# [-1, 2, -3, 5, 7, 8, 9, -10]
+# Rearrange positive and negative numbers of the said array:
+# [2, 5, 7, 8, 9, -10, -3, -1]
+
+'''l=[-1, 2, -3, 5, 7, 8, 9, -10]
+sort=sorted(l,key=lambda x: (x<0,x))
+print(sort)'''
+#Write a Python program that matches a string that has an a followed by three 'b'.
+import re
+s="dbbb"
+
+
+if re.search(r"\b.*b{3}",s):
+    print("match found")
+else:
+    print("no match")
+    
+    
+
+
+import psutil
+import os
+import time
+
+# Function to check memory usage
+def memory_usage():
+    process = psutil.Process(os.getpid())
+    mem_info = process.memory_info()
+    return mem_info.rss / (1024 * 1024)  # Convert bytes to MB
+
+# Measure memory before creating objects
+before_memory = memory_usage()
+print(f"Memory usage before creating objects: {before_memory:.2f} MB")
+
+# Creating 10 million objects
+class MyObject:
+    def __init__(self, value):
+        self.value = value
+        
+
+# Create 10 million objects
+objects = [MyObject(i) for i in range(10_000_000)]
+
+# Measure memory after creating objects
+after_memory = memory_usage()
+print(f"Memory usage after creating objects: {after_memory:.2f} MB")
+
+# Optionally, delay the exit so you can inspect memory via OS tools if needed
+time.sleep(5)
+
+-------
+import pandas as pd
+
+s = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+df = pd.DataFrame(s)
+print(df)
+
+df1 = df.applymap( lambda x : x**2 if x%2!=0 else x)
+print(df1)
+--------------------------------------
+s=[2,2,4,1,1]
+def fun(s):
+    print(s)
+    for i in s:
+        if s.count(i)>1:
+            continue
+        else:
+            print(i)
+fun(s)
+-------------------------------------------
+def fin(s1, s2):
+    if len(s1) != len(s2):
+        return False
+
+    mapping_s1_to_s2 = {}
+    mapping_s2_to_s1 = {}
+
+    for char_s1, char_s2 in zip(s1, s2):
+        #print(char_s1,char_s2)
+        if (char_s1 in mapping_s1_to_s2 and mapping_s1_to_s2[char_s1] != char_s2) or \
+          (char_s2 in mapping_s2_to_s1 and mapping_s2_to_s1[char_s2] != char_s1):
+            return False
+        mapping_s1_to_s2[char_s1] = char_s2
+        mapping_s2_to_s1[char_s2] = char_s1
+
+    return True
+
+# Test cases
+s1 = "paper"
+s2 = "title"
+res = fin(s1, s2)
+print(res)  # Output: True
+
+s1 = "aab"
+s2 = "xxy"
+res = fin(s1, s2)
+print(res)  # Output: True
+
+s1 = "aab"
+s2 = "xyz"
+res = fin(s1, s2)
+print(res)  # Output: False
+-----------------------------------------------------
+
+#data = {"a": 1, "b": {"c": 2, "d": {"a": 3}}}
+#find_key(data, "a")  
+#o/p [1, 3]
+
+
+def find_key(data,target_key):
+    results=[]
+    def recursive_search(d):
+        if isinstance(d,dict):
+            for key,value in d.items():
+                if key == target_key:
+                    results.append(value)
+                if isinstance(value,dict):
+                    recursive_search(value)
+    recursive_search(data)
+    return results
+
+data = {"a": 1, "b": {"c": 2, "d": {"a": 3}}}
+res = find_key(data,"a")
+print(res)
+
+---------------------------------------------
+ Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence. Example: 0100,0011,1010,1001 Then the output should be: 1010
+
+def check(x):
+    print(x)
+    for i in x:
+        d=int(i,2)
+        #print(d)
+        if d%5==0:
+            print(i)
+x = "0100,0011,1010,1001".split(",")
+check(x)
+--------------------------------------------
+l = [1, 2, 3, 4, 9, 8, 7, 4, 2, 3, 1, 5]
+
+i = 0
+while i < len(l):
+    if l.count(l[i]) > 1:
+        l.pop(i)  
+    else:
+        i += 1  
+
+print(l)
+------------------------------------------
+def max_circular(nums):
+    def kadane(nums):
+        max_ending=max_so_far=nums[0]
+        for arr in nums[1:]:
+            max_ending=max(arr,max_ending+arr)
+            max_so_far=max(max_so_far,max_ending)
+        return max_so_far
+    max_kadane=kadane(nums)
+    print(max_kadane)
+    #step2
+    total_sum=sum(nums)
+    print(total_sum)
+    print(nums)
+    #step3 min-subarray
+    sub=[-x for x in nums]
+    min_kadane=kadane(sub)
+    min_sub=-min_kadane
+    
+    max_circular=total_sum-min_sub
+    print(max_circular)
+    if max_circular == 0:
+        return max_kadane
+    return max(max_kadane,max_circular)
+
+nums=[5,-3,5]
+res=max_circular(nums)
+print(res)
+----------------------------------------------
+s="aabbbcabbcddda"
+comp=[]
+count=1
+prev_char=s[0]
+for char in s[1:]:
+    if char == prev_char:
+        count+=1
+    else:
+        comp.append(prev_char)
+        if count>1:
+            comp.append(str(count))
+        count = 1
+        prev_char=char
+comp.append(prev_char)
+if count>1:
+    comp.append(str(count))
+print(''.join(comp))
+----------------------------------------------
+employees = [ ["A", 90000, "BNG", "IT"], ["B", 80000, "HYD", "IT"], ["C", 70000, "BNG", "IT"], ["D", 100000, "HYD", "IT"], ["E", 40000, "HYD", "CS"] ]
+# loc_dept={}
+# for emp in employees:
+#     name,sal,loc,dept=emp
+#     key=(loc,dept)
+#     if key not in loc_dept or sal>loc_dept[key][1]:
+#         loc_dept[key]=emp
+# print(list(loc_dept.values()))
+
+import pandas as pd
+df=pd.DataFrame(employees,columns=['Name','Sal','loc','dept'])
+print(df)
+f=df.groupby(['loc','dept']).max('sal').reset_index()
+print(f)
+----------------------------------------------------
+l= [1,1, 2, 2,2,2,2,2,4, 5, 7, 7, 7]
+i=0
+while i<len(l):
+    j=i+1
+    while j < len(l):
+        if l[j]==l[i]:
+            l[j]=chr(95)
+        j+=1
+    i+=1
+print(l)
+k=[x for x in l if x != chr(95)]+[x for x in l if x ==chr(95)]
+print(k)
+----------------------------------------------
+# Write a  python program that prints the integers from 0 to 24 (inclusive). Print five integers per line. The output of the program should look like below:
+#   0  1  2  3  4
+#   5  6  7  8  9
+#  10 11 12 13 14 
+#  15 16 17 18 19
+#  20 21 22 23 24
+ 
+for i in range(0,25,5):
+     for j in range(i,i+5):
+         print(j,end=" ")
+    
+     print()
+-----------------------------------------------------------
+s="AMMA"
+def check_pal(s):
+    print(s)
+    f=s[::-1]
+    print(f)
+    if s == f:
+        return True
+    else:
+        return False
+
+if check_pal(s):
+    print(f"GIven {s} is palindrome")
+else:
+    print(f"given string {s} is not a palindrome")
+------------------------------------------------------------------
+a=[0,0,1,1,1,1,0,1,1,1,1,1,0]
+max_count=0
+current_count=0
+for i in a:
+    if i==1:
+        current_count+=1
+        max_count=max(max_count,current_count)
+    else:
+        current_count=0
+print(f"maximum consequence ones in input is {max_count}")
+----------------------------------------------------------------------
+import time
+def caltime(func):
+    def wrapper(*args,**kwargs):
+        start=time.time()
+        res=func(*args,**kwargs)
+        end=time.time()
+        print(f"{end-start} seconds")
+        return res
+    return wrapper
+
+@caltime
+def fac(n):
+    def rec(n):
+        if n<=1:
+            return 1
+        return n*rec(n-1)
+    return rec(n)
+res=fac(5)
+print(res)
+-------------------------------------------------------------
+m = 67123.564957
+v=str(m)
+print(v)
+d=v.split(".")
+print(d)
+count=0
+res=""
+for i  in d[1]:
+    if count<4:
+        res+=i
+        count+=1
+print(res)
+print(d[0]+"."+res)
+
+import re
+
+f=re.findall(r"^[0-9]+\.[0-9]{3}",v)
+print(f)
+re="".join(f)
+print(re)
+from decimal import Decimal,ROUND_DOWN
+g=Decimal(v).quantize(Decimal("0.0001"),rounding=ROUND_DOWN)
+print(g)
+----------------------------------------------------------------------------------
+l=[4,4,4,4,1,1,1,2,2,2,3,3,3,3,3]
+#{4:4, 1:3,2:3}
+d=set(l)
+final={}
+for i in d:
+    final.update({i:l.count(i)})
+print(final)
+
+#another optimized way
+
+from collections import Counter
+e=Counter(l)
+print(e)
+-----------------------------------------------
+#Fetching digits along with -
+text = 'This is number  408-555-5555 to show '
+
+import re
+result = re.findall(r"[^a-zA-Z ]",text)
+print("".join(result))
+------------------------------------------
+
+d1 = {"a": 1, "b": 2, "c": 5}
+d2 = {"a": 4, "c": 6, "d": 8, "e": 9}
+
+# Update d2 by adding values from d1 where keys match
+for i in d1:
+    d2[i] = d2.get(i, 0) + d1[i]  # Add values from d1, default to 0 if key doesn't exist in d2
+
+print(d2)
+output : {'a': 5, 'c': 11, 'd': 8, 'e': 9, 'b': 2}
+-------------------
+n=12345  # output is sum of digits we need output in single digit
+sum=0
+for i in str(n):
+    sum+=int(i)
+
+print(sum)
+res=0
+if len(str(sum))>=2:
+
+    for i in str(sum):
+        res+=int(i)
+print(res)
+
+#----------------------another way
+m=12345
+d= 1 + (n-1)%9 if n>0 else 0
+print(d)
+--------------------------------------------------------------
+my_dict = {
+    'a': 10,
+    'b': 20,
+    'c': 5,
+    'd': 15
+}
+
+d=dict(sorted(my_dict.items(),key=lambda item:item[1],reverse=True))
+print(d)
+--------------------------------------------------------------------
+s="narendra"
+rev=[]
+print(ord("n"))
+for i in s.lower():
+    rev.append(ord(i))
+print(rev)
+for i in range(len(rev)):
+    for j in range(len(rev)):
+        if rev[j]>rev[i]:
+            rev[j],rev[i]=rev[i],rev[j]
+print(rev)
+final=''
+for i in rev:
+    final+=chr(i)
+print(final)
+
+
+
+print("".join(sorted(s)))#withbuiltin
+---------------------------------------------------------------------
+def longest_palindromic_substring(s: str) -> str:
+    def expand_around_center(left: int, right: int) -> str:
+        print(left,right)
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+        # Return the longest palindrome from the current center
+        return s[left + 1:right]
+    
+    if len(s) <= 1:
+        return s
+
+    longest = ""
+    
+    for i in range(len(s)):
+        # Odd length palindrome (single character center)
+        odd_palindrome = expand_around_center(i, i)
+        print(f"odd palindrome was {odd_palindrome}")
+        if len(odd_palindrome) > len(longest):
+            longest = odd_palindrome
+        
+        # Even length palindrome (two character center)
+        even_palindrome = expand_around_center(i, i + 1)
+        print(f"even palindrome was {even_palindrome}")
+        if len(even_palindrome) > len(longest):
+            longest = even_palindrome
+    
+    return longest
+
+# Example usage
+input_string = "babad"
+print(longest_palindromic_substring(input_string))  # Output: "bab" or "aba"
+------------------------------------------------------------------------------------------------------------------------------        
+#Write a Python program that rotates an array by two positions to the right.
+def rotate_array(arr,positions):
+    n=len(arr)
+    return arr[-positions:]+arr[:-positions]
+
+arr=list(map(int,input("enter element separated by comma : ").split()))
+positions = 2
+
+rotated_array = rotate_array(arr,positions)
+print(rotated_array)
+
+# Given a list of strings, write a Python program to group all anagrams together.
+# words = ["listen", "silent", "enlist", "rat", "tar", "art"]
+# Output: [['listen', 'silent', 'enlist'], ['rat', 'tar', 'art']]
+s = ["listen", "silent", "enlist", "rat", "tar", "art"]
+res={}
+for i in s:
+    key = "".join(sorted(i))
+    print(key)
+    if key in res:
+        res[key].append(i)
+    else:
+        res[key]=[i]
+print(res)
+final=[]
+for i in res.values():
+    final.extend([i])
+print(final)
+----------------------------------------------------------------------------------------------------------------------------
+# Input: arr[] = {1, 0, 2, 3, 0, 4, 5, 0}, K = 0 
+# Output: {1, 0, 0, 2, 3, 0, 0, 4} 
+# Explanation: 
+# The given array {1, 0, 2, 3, 0, 4, 5, 0} is modified to {1, 0, 0, 2, 3, 0, 0, 4] after insertion of two 0’s and truncation of extra elements.
+
+def modify_arr(arr,k):
+    result = []
+    for num in arr:
+        result.append(num)
+        
+        if num == 0:
+            result.append(0)
+        if len(result)>= len(arr):
+            break
+    return result[:len(arr)]
+
+
+
+a = [1,0,2,3,0,4,5,0]
+k=0
+output = modify_arr(a,k)
+print(output)
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+#Input:  arr[] = {1, 2, 3, -4, -1, 4}
+#Output: arr[] = {1, -4, 2, -1, 3, 4}
+a=[1,2,3,-4,-1,4]
+def rearrange_alternate(a):
+    positive =[x for x in a if x>=0]
+    negative =[x for x in a if x<0]
+    result =[]
+    i=j=0
+    
+    while i<len(positive) and j <len(negative):
+        result.append(positive[i])
+        result.append(negative[j])
+        i+=1
+        j+=1
+        
+    while i<len(positive):
+        result.append(positive[i])
+        i+=1
+    while j<len(negative):
+        result.append(negative[j])
+        j+=1
+    return result
+
+
+print(rearrange_alternate(a))
+-------------------------------------------
+
