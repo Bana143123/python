@@ -1284,4 +1284,15 @@ def rearrange_alternate(a):
 
 print(rearrange_alternate(a))
 -------------------------------------------
+d=[{"empname":"narendra","company name":"spanidea"},{"empname":"emp1","company name":"AMD"},{"empname":"e2","company name":"spanidea"},{"empname":"e3","company name":"AMD"}]
+final={}
+for i in d:
+    #print(i)
+    company = i["company name"]
+    if company in final:
+        final[company].append(i["empname"])
+    else:
+        final[company]=[i["empname"]]
+print(final)
+-----------------------------------------------------------------
 
