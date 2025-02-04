@@ -1295,4 +1295,14 @@ for i in d:
         final[company]=[i["empname"]]
 print(final)
 -----------------------------------------------------------------
+l=[float('-inf'),float('inf'),float('inf')] #change the different inputs it will cover all types of scenarios
+largest=second=float("-inf")
+for i in l:
+    if i>largest:
+        second=largest
+        largest=i
+    elif i>second and i!=largest:
+        second=i
+print("second largest number is : ",second)
+--------------------------------------------------------------------
 
