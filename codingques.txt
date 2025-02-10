@@ -1329,4 +1329,35 @@ for i in range(65,70):
     print()
     j+=1
 ---------------------------------------------------------
+l=[1,2,3,22,12,32,12,122,543,32,122]
+#l = [10, 10, 9, 8, 7]
+#l = [5, 5, 5, 5, 5]
+#l = [10]
+
+
+# largest=0
+# for i in l:
+#     if i >largest:
+#         largest=i
+# print(largest)
+
+largest=second=third=float('-inf')
+for i in l:
+    if i>largest:
+        third=second
+        second=largest
+        largest=i
+    elif i>second and i!=largest:
+        third=second
+        second=i
+    elif i>third and i!= second and i!=largest:
+        third=i
+
+if third == float('-inf'):
+    print("There is no third largest number")
+else:
+    print("first largest number was : ",largest)
+    print("second largest number was : ",second)
+    print("Third largest number was : ",third)
+---------------------------------------------------------------------------------------------
 
