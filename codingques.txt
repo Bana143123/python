@@ -1335,29 +1335,51 @@ l=[1,2,3,22,12,32,12,122,543,32,122]
 #l = [10]
 
 
-# largest=0
-# for i in l:
-#     if i >largest:
-#         largest=i
-# print(largest)
-
-largest=second=third=float('-inf')
+Flarge=0
 for i in l:
-    if i>largest:
-        third=second
-        second=largest
-        largest=i
-    elif i>second and i!=largest:
-        third=second
-        second=i
-    elif i>third and i!= second and i!=largest:
-        third=i
+    if i>Flarge:
+        Flarge=i
+print(f"First largest number was : {Flarge}")
+----------------------------------------------------------------
+l=[1,2,3,22,12,32,12,122,543,32,122]
+#l = [10, 10, 9, 8, 7]
+#l = [5, 5, 5, 5, 5]
+#l = [10]
 
-if third == float('-inf'):
-    print("There is no third largest number")
+Flarge=Slarge=float('-inf')
+for i in l:
+    if i>Flarge:
+        Slarge=Flarge
+        Flarge=i
+    elif i>Slarge and i!=Flarge:
+        Slarge=i
+if Slarge == float('-inf'):
+    print("There is no second largest number")
 else:
-    print("first largest number was : ",largest)
-    print("second largest number was : ",second)
-    print("Third largest number was : ",third)
+    print("The first largest number was : ",Flarge)
+    print("The second largest number was : ",Slarge)
 ---------------------------------------------------------------------------------------------
+l=[1,2,3,22,12,32,12,122,543,32,122]
+#l = [10, 10, 9, 8, 7]
+#l = [5, 5, 5, 5, 5]
+#l = [10]
+Flarge=Slarge=Tlarge=float('-inf')
+for i in l:
+    if i>Flarge:
+        Tlarge=Slarge
+        Slarge=Flarge
+        Flarge=i
+    elif i>Slarge and i!=Flarge:
+        Tlarge=Slarge
+        Slarge=i
+    elif i>Tlarge and i!=Slarge and i!=Flarge:
+        Tlarge=i
+        
+if Tlarge == float('inf'):
+    print("There is no third largest number in list")
+else:
+    print(f"The first largest number was : {Flarge}")
+    print(f"The Second larget number was : {Slarge}")
+    print(f"The Third larget number was  : {Tlarge}")
+----------------------------------------------------------------------------------------
 
