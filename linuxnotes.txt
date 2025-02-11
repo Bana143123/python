@@ -1,0 +1,110 @@
+head command will print firt 10 lines of data inside file
+ex: head linux.txt
+if u want to read only first 5 lines then u use following command
+ex: head -5 linux.txt
+tail command will print last 10 lines of data inside file
+ex:tail linux.txt
+if u want to read only last 5 lines then u use following command
+ex: tail -5 linux.txt
+cat command will print entire data inside file
+ex: cat linux.txt
+echo command will dispays a some text inside the file
+echo hello >file.txt --here "hello" text will be printed inside file.txt
+cat file1.txt file2.txt file3.txt - we can display multiple files data by represent like this way
+cat file1.txt fie2.txt file3.txt >all.txt
+cat all.txt - here all files data will stored in the single file all.txt
+cat >file5.txt - this means we are using cat command to create file5.txt file and write content
+more allows only forward navigation through the file.
+less allows both forward and backward navigation.
+less has additional features like searching and jumping to specific lines or sections in the file, which more lacks.
+uptime command - this command shows uptime of our system
+free command -Display amount of free and used memory in the system.
+df command - report file system disk space usage
+lsblk - list block devices
+fdisk - manipulate disk partition table
+top - displays linux processes.
+htop - interactive process viewer
+Nano - This Command is used for text editing inside text file from terminal itself.
+Ex: Nano file_name
+i — Enter Insert Mode before the cursor.
+a — Enter Insert Mode after the cursor.
+o — Open a new line below the current line and enter Insert Mode.
+O — Open a new line above the current line and enter Insert Mode.
+Esc — Exit Insert or Visual Mode and return to Normal Mode.
+:w — Save the file.
+:q — Quit Vim.
+:wq or :x — Save the file and quit Vim.
+:q! — Quit without saving changes.
+:e filename — Open a different file.
+:r filename — Read a file into the current buffer.
+errorscoming
+grep Command
+The grep command searches for patterns within files. It is often used to search through text and log files for specific patterns.
+syntax: grep [options] [pattern] [filename]
+ex1: grep "errorscoming" logfile.txt - Search for the pattern error in a file named logfile.txt:
+This will display all lines in logfile.txt containing the word errorscoming.
+ex2: Search for the pattern errorscoming recursively in the directory /var/log:- grep -r "error" /var/log  - -r: Recursively searches through directories and subdirectories.
+ex3:Search for a pattern in files and display line numbers: grep -n "errorscoming" logfile.txt
+-n: Shows line numbers along with matching lines.
+ex4:Search for lines not containing the pattern warning: grep -v "warning" logfile.txt --v: Inverts the match, displaying lines that do not contain the pattern.
+locate command - locate the file name in system faster than find
+ex: locate filename
+ex2:locate "*.log" - locating files with .log extensions
+ex3: locate "*.txt" 
+sed (stream editor) command is used for replacement text inside file
+ex: sed -i "s/original_text/replacement_text/" filename.
+ex1: sed -i "s/errors/errorscoming/" "workingwithfilecontent.txt" - here replacing errors with errorscoming text in file.
+ls -l filename - willget who have file permission like owner  ,group owner, size, last modified file time
+What is the Linux Kernel?
+The Linux kernel is the central part of the operating system that interacts directly with the hardware of a computer. It handles low-level tasks such as managing CPU, memory, and peripheral devices, and provides services for applications and system processes.
+File Merge - Merging MUltiple text files into single text file using cat command
+cat file1.txt file2.txt > file3.txt -- use single ">" if you want overwritten the data to this file. if we want add the data to existing file use double ">>" as below.
+cat file1.txt file2.txt >> file3.txt.
+paste command - this command will print data line by line in one file take first line,in second line take first line and print in single line.
+paste -d "," file5.txt file6.txt > merge.txt  - d means delimiter
+--------------------------
+Linux
+created by Linus Torvalds in 1991
+Many Linux Distributions was there
+1. Ubuntu
+2. Debian
+3. Kali Linux
+4. Red hat
+
+Linux Full Form - Lovable intellect not using xp
+
+Most popular linux distribution was -Ubuntu
+there are 3 editions in Ubuntu 
+1.desktop
+2.server
+3.core
+
+cd - change directory
+pwd- current working directory
+ls - list of directories
+ls -l - lists long format
+ls -a - lists all files
+ls -lah 
+mkdir - create a directory
+Creating parent directory 
+mkdir -p Reddy/kumar/Narendra
+rmdir - removing empty directory
+removing parent directory
+rmdir -p Reddy/kumar/Narendra
+file file_name - will get about file
+creating a file
+touch file_name
+remove files or directories using rm
+1)rm file1.txt
+2)rm -i file1.txt file2.txt
+3)removing directory using rm -rf directory_name
+copy-cp
+1)cp source destination
+  a) cp file1.txt file1cp.txt  - same folder
+  b) cp file1.txt "/home/reddy/Documents/  - different filder if u want to copy
+  
+move -mv - moving and renaming a filee
+1) mv file1.txt file2.txt
+   mv file1.txt /home/Documents/file3.txt  - moving a file to some other folder and renaming
+
+  
