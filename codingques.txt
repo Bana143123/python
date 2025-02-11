@@ -1382,4 +1382,33 @@ else:
     print(f"The Second larget number was : {Slarge}")
     print(f"The Third larget number was  : {Tlarge}")
 ----------------------------------------------------------------------------------------
+import os
+import time
+import platform
+import sys
+import subprocess
+path="/home/span63/Documents/chatApplication"
+files_li=[]
+for root,dirs,files in os.walk(path):
+    for file in files:
+        full_path=os.path.join(root,file)
+        files_li.append(full_path)
+print("length of files   ",len(files_li))
+for f in files_li:
+    print(f)
+
+
+print()
+print(sys.platform)
+data=subprocess.run(["ping","-c","4","google.com"],capture_output=True,text=True)  #pinging google
+print(data.stdout)
+--------------------------------------------------------------------------------------------------
+#Write a Python program to generate 26 text files named A.txt, B.txt, and so on up to Z.txt.,
+j=1
+for i in range(65,95):
+    d=f"{chr(i)}.txt"
+    with open(d,"a") as file:
+        file.write(f"this is the {d} file")
+
+---------------------------------------------------------------------------------
 
