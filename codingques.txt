@@ -1411,4 +1411,65 @@ for i in range(65,95):
         file.write(f"this is the {d} file")
 
 ---------------------------------------------------------------------------------
+import os
+def find():
+    path="/home/span63/Documents/shellscript/day3"
+    
+    for file in os.listdir(path):
+        print(file)
+        
 
+res=find()
+
+
+import os
+
+def find():
+    path = "/home/span63/Documents/shellscript/day3"
+    
+    # Initialize an empty list to store all file paths
+    all_files = []
+    
+    # Use os.walk to go through all directories and subdirectories
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            # Join the root and file to get the full file path
+            full_path = os.path.join(root, file)
+            all_files.append(full_path)
+    
+    return all_files
+
+# Capture the result in res
+res = find()
+
+# Print the result if needed
+for file in res:
+    print(file)
+
+#Write a Python program to sort a list of dictionaries using Lambda.
+
+'''l1= [{"name":"Narendra","age":24},
+     {"name":"Reddy","age":23},
+     {"name":"Bana","age":25}]
+sort=sorted(l1,key=lambda x: x["age"])
+print(sort)'''
+
+# Write a Python program to rearrange positive and negative numbers in a given array using Lambda.
+# Original arrays:
+# [-1, 2, -3, 5, 7, 8, 9, -10]
+# Rearrange positive and negative numbers of the said array:
+# [2, 5, 7, 8, 9, -10, -3, -1]
+
+'''l=[-1, 2, -3, 5, 7, 8, 9, -10]
+sort=sorted(l,key=lambda x: (x<0,x))
+print(sort)'''
+#Write a Python program that matches a string that has an a followed by three 'b'.
+import re
+s="dbbb"
+
+
+if re.search(r"\b.*b{3}",s):
+    print("match found")
+else:
+    print("no match")
+----------------------------------------------
