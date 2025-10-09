@@ -265,8 +265,7 @@ print(g)
 ################################################################################
 import re
 tr="operations\n\r\nworking on project"
-d=re.split(r"\n+|\r+",tr.strip())
-d=[i.strip() for i in d if i.strip()]
+d=re.split(r"[\n|\r]+",tr)
 print(d)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 def find_smallest_missing_positive(nums):
@@ -1494,3 +1493,4 @@ thread2.start()
 thread1.join()
 thread2.join()
 ----------------
+
