@@ -923,14 +923,15 @@ x = "0100,0011,1010,1001".split(",")
 check(x)
 --------------------------------------------
 l = [1, 2, 3, 4, 9, 8, 7, 4, 2, 3, 1, 5]
-
-i = 0
+i=0
 while i < len(l):
-    if l.count(l[i]) > 1:
-        l.pop(i)  
-    else:
-        i += 1  
-
+    j= i + 1
+    while j < len(l):
+        if l[i] == l[j]:
+            del l[j]
+        else:
+            j+=1
+    i+=1
 print(l)
 ------------------------------------------
 def max_circular(nums):
@@ -1493,4 +1494,5 @@ thread2.start()
 thread1.join()
 thread2.join()
 ----------------
+
 
