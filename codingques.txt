@@ -1548,7 +1548,7 @@ return self._age
 
 @age.setter
 
-def setter(self, value):
+def age(self, value): #same property name we can use for setter as well
 
 if value > 0:
 
