@@ -1531,6 +1531,38 @@ nums = [0, 1, 0, 3, 12]
 move_zeros(nums)
 print(nums) #[1,3,12,0,0]
 ---------------
+# getter and setter 
+class Hi:
 
+def __init__(self, name, age):
 
+self._name = name # private attributes double underscores (__)
+
+self._age = age
+
+@property
+
+def age(self):
+
+return self._age
+
+@age.setter
+
+def setter(self, value):
+
+if value > 0:
+
+self._age = value
+
+else:
+
+print("value must be +ve")
+
+d=Hi("Narendra", 40)
+
+print(d.age)
+
+d.setter = 20
+
+print(d.age)
 
