@@ -1565,4 +1565,25 @@ print(d.age)
 d.setter = 20
 
 print(d.age)
+------------------------------------------------------------------------------------------
+v = "Narendra Kumar Reddy Bana"
+#"Bana Reddy Kumar Narendra"
+words=[]
+temp=""
+for i in v:
+    if i==" ":
+        words.append(temp)
+        temp=""
+    else:
+        temp+=i
+words.append(temp)
+
+print(words)
+res=""
+for i in range(len(words)-1,-1,-1):
+    res+=words[i]
+    if i!=0:
+        res+=" "
+print(res)
+-------------------------------------------------------------------------------------------
 
